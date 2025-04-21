@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 30px 0 0 0; /* Adjusted to account for header height */
+            padding: 0;
+            background-color: #e6f7ff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background: #b3e5fc;
+            color: #333;
+            padding: 1rem;
+            text-align: center;
+            width: 100%;
+            height: 60px; /* 적절한 정렬을 위한 높이 증가 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center; /* Vertically centers the text */
+            justify-content: center; /* Horizontally centers the text */
+        }
+        nav {
+            background: #b3e5fc;
+            padding: 1rem;
+            width: 10%;
+            height: calc(100vh - 60px); 
+            position: fixed;
+            top: 90px; /* 헤더 높이에 맞게 조정 */
+            left: 0;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            margin-bottom: 1rem;
+        }
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+        }
+        main {
+            margin-left: 12%; /* 네비게이션 너비를 고려하여 왼쪽 여백 조정 */
+            margin-top: 80px; /* 헤더 높이를 고려하여 위쪽 여백 조정 */
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        section {
+            padding: 2rem;
+            border: 1px solid #b3e5fc;
+            border-radius: 8px;
+            background: #fff;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #b3e5fc;
+            color: #333;
+            margin-left: 12%; /* 네비게이션 너비를 고려하여 왼쪽 여백 조정 */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>치와의 포트폴리오</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#profile">프로필</a></li>
+            <li><a href="#contact">연결 정보</a></li>
+            <li><a href="#projects">프로젝트</a></li>
+            <li><a href="#form">웹 폼</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="profile">
+            <h2>프로필</h2>
+            <img src="forder_for_index/치와 프로필.jpg" alt="치와 프로필 사진" style="width:150px; height:auto; border-radius:20%;">
+            <p>안녕하세요! 저는 치와입니다. 웹 개발과 디자인에 열정을 가지고 있습니다.</p>
+        </section>
+
+        <section id="contact">
+            <h2>연결 정보</h2>
+            <ul>
+                <li>GitHub: <a href="https://github.com/sooachoi72" target="_blank">https://github.com/sooachoi72</a></li>
+                <li>Email: sooachoi@duksung.ac.kr</li>
+            </ul>
+        </section>
+
+        <section id="projects">
+            <h2>프로젝트</h2>
+            <table border="1" style="width:100%; border-collapse:collapse; text-align:left;">
+                <thead>
+                    <tr>
+                        <th>프로젝트 이름</th>
+                        <th>설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>프로젝트 1) 덕성여대 맛집 추천 프로그램</td>
+                        <td>
+                            <a href="index2.html" target="_blank">프로젝트 상세 보기</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section id="form">
+            <h2>웹 폼</h2>
+            <!-- 'iframe'을 통해 링크 화면 출력 -->
+            <iframe src="form.html" style="width:100%; height:500px; border:none;" title="웹 폼"></iframe> 
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 치와. All rights reserved.</p>
+    </footer>
+</body>
+</html>

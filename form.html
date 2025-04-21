@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>구글 앱스 스크립트 정보 전달</title>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+    .form-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        width: 100%;
+    }
+    fieldset {
+        margin: 10px 0;
+        padding: 10px;
+        border: 1px solid #ccc;
+        width: 300px;
+    }
+    button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+</style>
+<script>
+function submitForm(event) {
+    event.preventDefault();
+    const email = document.getElementById("email").value;
+    const name = document.getElementById("name").value;
+    const message = document.getElementById("message").value;
+    const gender = document.querySelector('input[name="gender"]:checked').value;
+    const mood = document.querySelector('input[name="mood"]:checked').value;
+
+    fetch("https://script.google.com/macros/s/AKfycbxuVJ6sRr3GODt2fuxNFPLqnK1N0lEezgxxTU-NvSth0QfdqUAGq5NnCfS9v7mxqVYm/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: 'email=' + encodeURIComponent(email) + 
+              '&name=' + encodeURIComponent(name) + 
+              '&message=' + encodeURIComponent(message) + 
+              '&gender=' + encodeURIComponent(gender) + 
+              '&mood=' + encodeURIComponent(mood)
+    })
+    .then(response => {
+        alert("정보가 성공적으로 전송되었습니다!");
+    })
+    .catch(error => {
+        alert("전송 실패: " + error.message);
+    });
+}
+</script>
+</head>
+
+<body>
+    <form onsubmit="submitForm(event)">
+        <div class="form-container">
+            <fieldset>
+                <h2>정보 제출 폼</h2>
+                <label for="email">이메일:</label><br>
+                <input type="email" id="email" name="email" placeholder="example@gmail.com" required><br><br>
+
+                <label for="name">이름:</label><br>
+                <input type="text" id="name" name="name" placeholder="홍길동" required><br><br>
+
+                <label for="message">하고 싶은 말:</label><br>
+                <textarea id="message" name="message" placeholder="안녕하세요!" required></textarea><br><br>
+            </fieldset>
+
+            <fieldset>
+                <h2>개인 정보 폼</h2>
+                <label>성별:</label><br>
+                <input type="radio" id="male" name="gender" value="남자" required>
+                <label for="male">남자</label><br>
+                <input type="radio" id="female" name="gender" value="여자" required>
+                <label for="female">여자</label><br><br>
+
+                <label>기분:</label><br>
+                <input type="radio" id="happy" name="mood" value="좋음" required>
+                <label for="happy">좋음</label><br>
+                <input type="radio" id="neutral" name="mood" value="보통" required>
+                <label for="neutral">보통</label><br>
+                <input type="radio" id="sad" name="mood" value="나쁨" required>
+                <label for="sad">나쁨</label><br><br>
+            </fieldset>
+        </div>
+        <button type="submit">제출</button>
+    </form>
+</body> 
+
+</html>
